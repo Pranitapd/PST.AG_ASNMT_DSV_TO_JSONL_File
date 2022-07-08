@@ -4,8 +4,18 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * ProcessDate class
+ * @author Pranita Deshmukh
+ */
 public class ProcessDate {
 
+    /**
+     * isValid function checks if passed string is a valid date
+     * @param indate
+     * @return
+     * @throws ParseException
+     */
     public static boolean isValid(String indate) throws ParseException {
         Pattern p = Pattern.compile("(((20[012]\\d|1[0-9]\\d\\d)|(1\\d|2[0123]))-((0[0-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])))|(((0[1-9])|([12][0-9])|(3[01]))-((0[0-9])|(1[012]))-((20[012]\\d|1[0-9]\\d\\d)|(1\\d|2[0123])))|(((20[012]\\d|1[0-9]\\d\\d)|(1\\d|2[0123]))\\/((0[0-9])|(1[012]))\\/((0[1-9])|([12][0-9])|(3[01])))|(((0[0-9])|(1[012]))\\/((0[1-9])|([12][0-9])|(3[01]))\\/((20[012]\\d|1[0-9]\\d\\d)|(1\\d|2[0123])))|(((0[1-9])|([12][0-9])|(3[01]))\\/((0[0-9])|(1[012]))\\/((20[012]\\d|1[0-9]\\d\\d)|(1\\d|2[0123])))|(((0[1-9])|([12][0-9])|(3[01]))\\.((0[0-9])|(1[012]))\\.((20[012]\\d|1[0-9]\\d\\d)|(1\\d|2[0123])))|(((20[012]\\d|1[0-9]\\d\\d)|(1\\d|2[0123]))\\.((0[0-9])|(1[012]))\\.((0[1-9])|([12][0-9])|(3[01])))\n");
         Matcher m = p.matcher(indate);
@@ -13,6 +23,12 @@ public class ProcessDate {
         return b;
     }
 
+    /**
+     * checkWhichDatePattern function recognises the date and transforms to YYYY-MM-dd format
+     * @param date
+     * @return
+     * @throws ParseException
+     */
     public static String checkWhichDatePattern(String date) throws ParseException {
         SimpleDateFormat targetDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date newDate;
